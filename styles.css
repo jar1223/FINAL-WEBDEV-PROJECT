@@ -41,3 +41,17 @@ pre { background:#2a6f97;; color:#e6f0ff; padding:0.8rem; border-radius:6px; ove
     border-radius: 10px;
     text-align: center;
 }
+.back-to-top-btn:hover {
+    background-color: #2758c9;
+    transform: translateY(-3px);   /* slight lift */
+    box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(49, 109, 244, 0.6); }
+    70% { box-shadow: 0 0 0 14px rgba(49, 109, 244, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(49, 109, 244, 0); }
+}
+
+.back-to-top-btn {
+    animation: pulse 2.5s infinite;
+}
