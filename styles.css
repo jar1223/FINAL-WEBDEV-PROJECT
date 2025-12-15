@@ -1,0 +1,31 @@
+
+body {
+  font-family: "Avenir", "Avenir Light", "Helvetica", "Arial", sans-serif;
+        background: 
+        linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+        url("pictures/coolbg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 0px;
+        text-align: left;
+}
+
+header { background: #ffffff; 
+}
+
+h1 { font-family: "Arial Black", Arial, sans-serif; 
+}
+
+h5 { color:#0d6efd ; 
+}
+
+.btn-accent { background-color: #2a6f97; color: white; padding: 0.5rem 0.8rem; border-radius: 6px; text-decoration: none; }
+
+.panel { background: #fff; padding: 0px; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+
+.container-centered { max-width: 980px; margin: 0 auto; padding: 1rem; }
+
+pre { background:#2a6f97;; color:#e6f0ff; padding:0.8rem; border-radius:6px; overflow:auto; }
+
+

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Riddle Guessing Game</title>
+
+<style>
+    body {
+        font-family: "Avenir", "Avenir Light", "Helvetica", "Arial", sans-serif;
+        background: 
+        linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+        url("pictures/funny.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 40px;
+        text-align: center;
+      }
+
+    h1 {
+        font-family: "Arial Black", Arial, sans-serif;
+        margin-bottom: 20px;
+    }
+
+    #game-box {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        width: 60%;
+        margin: auto;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+
+    input {
+        padding: 10px;
+        width: 60%;
+        margin-top: 15px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+
+    #check { background: #007bff; color: white; }
+    #hint { background: #ff9800; color: white; }
+    #give-up { background: #dc3545; color: white; }
+    #new-riddle { background: #28a745; color: white; }
+
+    #feedback {
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #hint-box {
+        margin-top: 10px;
+        font-style: italic;
+        color: #444;
+        display: none;
+    }
+
+    #answer-box {
+        margin-top: 15px;
+        font-weight: bold;
+        display: none;
+        color: #000;
+    }
+</style>
+</head>
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <a class="nav-link" href="index.html">Home</a></li> |
+          <a class="nav-link" href="resume.html">Résumé</a></li> |
+          <a class="nav-link" href="game.html">Game</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<h1>Riddle Guessing Game</h1>
+
+<div id="game-box">
+    <p id="riddle">Click "New Riddle" to start!</p>
+
+    <input id="user-answer" type="text" placeholder="Type your guess here...">
+
+    <p id="hint-box"></p>
+    <p id="answer-box"></p>
+    <p id="feedback"></p>
+
+    <button id="check">Check Answer</button>
+    <button id="hint">Hint</button>
+    <button id="give-up">Reveal Answer</button>
+    <button id="new-riddle">New Riddle</button>
+</div>
+
+<script>
+    const riddles = [
+        {
+            q: "What has to be broken before you can use it?",
+            a: "an egg",
+            hint: "It's found in the kitchen."
+        },
+        {
+            q: "I’m tall when I’m young and short when I’m old. What am I?",
+            a: "a candle",
+            hint: "It melts over time."
+        },
+        {
+            q: "What month has 28 days?",
+            a: "all of them",
+            hint: "This is a trick question."
+        },
+        {
+            q: "What gets wetter the more it dries?",
+            a: "a towel",
+            hint: "You use it after a shower."
+        },
+        {
+            q: "What goes up but never comes down?",
+            a: "your age",
+            hint: "It always increases."
+        }
+    ];
+
+    let currentRiddle = {};
+    let hintUsed = false;
+
+    function loadRiddle() {
+        const random = riddles[Math.floor(Math.random() * riddles.length)];
+        currentRiddle = random;
+        document.getElementById("riddle").textContent = random.q;
+        document.getElementById("answer-box").style.display = "none";
+        document.getElementById("hint-box").style.display = "none";
+        document.getElementById("feedback").textContent = "";
+        document.getElementById("user-answer").value = "";
+        hintUsed = false;
+    }
+
+    document.getElementById("new-riddle").addEventListener("click", loadRiddle);
+
+    document.getElementById("check").addEventListener("click", () => {
+        const guess = document.getElementById("user-answer").value.trim().toLowerCase();
+        const correct = currentRiddle.a.toLowerCase();
+
+        if (!guess) {
+            document.getElementById("feedback").textContent = "Please type a guess!";
+            document.getElementById("feedback").style.color = "red";
+            return;
+        }
+
+        if (guess === correct) {
+            document.getElementById("feedback").textContent = "Correct! 🎉";
+            document.getElementById("feedback").style.color = "green";
+        } else {
+            document.getElementById("feedback").textContent = "Try again!";
+            document.getElementById("feedback").style.color = "red";
+        }
+    });
+
+    document.getElementById("hint").addEventListener("click", () => {
+        document.getElementById("hint-box").textContent = "Hint: " + currentRiddle.hint;
+        document.getElementById("hint-box").style.display = "block";
+        hintUsed = true;
+    });
+
+    document.getElementById("give-up").addEventListener("click", () => {
+        document.getElementById("answer-box").textContent = "Answer: " + currentRiddle.a;
+        document.getElementById("answer-box").style.display = "block";
+    });
+</script>
+
+</body>
+</html>
