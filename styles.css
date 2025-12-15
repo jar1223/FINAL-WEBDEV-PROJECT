@@ -37,9 +37,9 @@ pre { background:#2a6f97;; color:#e6f0ff; padding:0.8rem; border-radius:6px; ove
     color: white;
     text-decoration: none;
     font-family: "Avenir", "Avenir Light", "Helvetica", "Arial", sans-serif;
-    font-size: 18px;           
+    font-size: 72px;           
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 60px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.2);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-align: center;
