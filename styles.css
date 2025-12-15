@@ -30,8 +30,8 @@ pre { background:#2a6f97;; color:#e6f0ff; padding:0.8rem; border-radius:6px; ove
 
 .back-to-top-btn {
     display: block;               
-    width: fit-content;            
-    margin: 60px auto;            
+    width: 60px;            
+    margin: 60px;            
     padding: 14px 28px;            
     background-color: #316DF4;
     color: white;
