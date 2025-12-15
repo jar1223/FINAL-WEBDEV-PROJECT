@@ -29,17 +29,33 @@ h5 { color:#0d6efd ;
 pre { background:#2a6f97;; color:#e6f0ff; padding:0.8rem; border-radius:6px; overflow:auto; }
 
 .back-to-top-btn {
-    display: inline-block;
-    margin: 40px auto;
-    padding: 10px 20px;
-    background-color: #316DF4;   /* your color */
+    display: block;               
+    width: fit-content;            
+    margin: 60px auto;            
+    padding: 14px 28px;            
+    background-color: #316DF4;
     color: white;
     text-decoration: none;
     font-family: "Avenir", "Avenir Light", "Helvetica", "Arial", sans-serif;
-    border-radius: 8px;
+    font-size: 18px;           
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+}
+.back-to-top-btn:hover {
+    background-color: #2758c9;
+    transform: translateY(-3px);   /* slight lift */
+    box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(49, 109, 244, 0.6); }
+    70% { box-shadow: 0 0 0 14px rgba(49, 109, 244, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(49, 109, 244, 0); }
 }
 
-.back-to-top-btn:hover {
-    background-color: #2758c9;  /* slightly darker hover */
+.back-to-top-btn {
+    animation: pulse 2.5s infinite;
 }
 
